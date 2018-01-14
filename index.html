@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="description" content="Test webcam and microphone on your browser">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+  <meta itemprop="description" content="Client-side webcam and microphone testing">
+  <!-- <meta itemprop="image" content="../../../images/webrtc-icon-192x192.png"> -->
+  <meta itemprop="name" content="WebRTC code samples">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta id="theme-color" name="theme-color" content="#ffffff">
+
+  <base target="_blank">
+
+  <title>Institue of Reading Development - Webcam and Mic Test</title>
+
+  <!-- <link rel="icon" sizes="192x192" href="../../../images/webrtc-icon-192x192.png"> -->
+  <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./css/reading.css">
+
+</head>
+
+<body>
+
+  <div id="container">
+    <a href="http://readingprograms.org/"><img id="dnn_dnnLOGO_imgLogo" src="./img/logo.png" alt="Reading Programs"></a>
+    
+    <div style="text-align: center">
+      <video id="gum-video" playsinline></video>
+      <br>
+      <audio id="gum-audio" controls></audio>
+      <br>
+      <a id="button" class="btn-learnmore-orange" onclick="toggleTest()">Start Test</a>
+      <p class="warning"><strong>Warning:</strong> if you're not using headphones, pressing play will cause feedback.</p>
+
+      <div>
+        <h2 id="errorMsg" class="festivol purple"></h2>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/adapter-latest.js"></script>
+  <script src="./js/video.js"></script>
+  <script src="./js/audio.js"></script>
+  <script type="text/javascript">
+    function toggleTest() {
+      var but = document.getElementById("button");
+      var vid = document.getElementById("gum-video");
+      var aud = document.getElementById("gum-audio");
+
+      if (but.innerHTML == "Start Test") {
+        but.innerHTML = "Stop Test";
+        vid.play();
+        aud.play();
+      } else {
+        but.innerHTML = "Start Test";
+        vid.pause();
+        aud.pause();
+      }
+    }
+  </script>
+  
+</body>
+</html>

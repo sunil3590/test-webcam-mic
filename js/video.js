@@ -41,7 +41,7 @@ function handleError(error) {
 }
 
 function errorMsg(msg, error) {
-  errorElement.innerHTML += '<p>' + msg + '</p>';
+  errorElement.innerHTML += msg;
   if (typeof error !== 'undefined') {
     console.error(error);
   }
