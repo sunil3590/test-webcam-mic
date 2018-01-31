@@ -1,56 +1,93 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-  <meta charset="utf-8">
-  <meta name="description" content="Test webcam and microphone on your browser">
-
-  <base target="_blank">
-
-  <title>Institue of Reading Development - Webcam and Mic Test</title>
-
-  <link rel="icon" sizes="48x48" href="./img/favicon.ico">
-  <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="./css/reading.css">
-
-</head>
-
-<body>
-
-  <div id="container">
-    <a href="http://readingprograms.org"><img id="dnn_dnnLOGO_imgLogo" src="./img/logo.png" alt="Reading Programs"></a>
-    
-    <div style="text-align: center">
-      <video id="gum-video" playsinline></video>
-      <br>
-      <audio id="gum-audio"></audio>
-      <br>
-      <a id="button" class="btn-learnmore-orange" style="width: 15%; font-size: 200%; font-weight: bold;" onclick="toggleTest()">Start Test</a>
-      <p style="font-size: 150%; padding-top: 3%;"><strong>Warning:</strong> if you're not using headphones, pressing play will cause feedback.</p>
-      <p style="font-size: 150%; padding-top: 3%; font-weight: bold; color: red;" id="errorMsg"></p>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Test webcam and microphone on your browser">
+    <base target="_blank">
+    <title>Institue of Reading Development - Webcam and Mic Test</title>
+    <link rel="icon" sizes="48x48" href="./img/favicon.ico">
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./css/reading.css">
+    <link rel="stylesheet" href="./css/webcam.css">
+  </head>
+  <body>
+    <div id="container">
+      <a href="http://readingprograms.org"><img id="dnn_dnnLOGO_imgLogo" src="./img/logo.png" alt="Reading Programs"></a>
+      <div style="text-align: center">
+        <video id="gum-video" playsinline style="width: 65%"></video>
+        <br>
+        <audio id="gum-audio"></audio>
+        <br>
+        <a id="button" class="btn-learnmore-orange" style="width: 15%; font-size: 200%; font-weight: bold;" onclick="toggleTest()">Start Test</a>
+        <p style="font-size: 150%; padding-top: 3%;"><strong>Warning:</strong> if you're not using headphones, pressing play will cause feedback.</p>
+        <p style="font-size: 150%; padding-top: 3%; font-weight: bold; color: red;" id="errorMsg"></p>
+        <!-- Trigger/Open The Modal -->
+        <button id="help-button" class="btn-learnmore-blue">Need Help?</button>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <br>
+            <ol>
+              <li>Go to the <a href="https://www.google.com/chrome/browser/features.html">Google Chrome website</a>. You can use any web browser to download Google Chrome. If you haven’t installed a browser, you can use your operating system’s preinstalled web browser (Internet Explorer or Edge for Windows and Safari for Mac OS X).</li>
+              <li>Click "Download Chrome". This will open the Terms of Service window.</li>
+              <li>Determine if you want Chrome as your default browser. If you set it as the default browser, it will open whenever a link for a web page is clicked in another program, such as email.</li>
+              <li>Click “Accept and Install” after reading the Terms of Service. The installer will start and you will have Google Chrome installed when it has finished. Depending on your browser settings, you may need to allow the program to run.</li>
+              <li>Sign in to Chrome. After installing, a Chrome window will open showing first-time use information.</li>
+            </ol>
+            <hr>
+            <p>These instructions are attributed to <a href="https://www.wikihow.com/Download-and-Install-Google-Chrome">wikiHow</a> under the following <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">license agreement.</a></p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <script src="./js/adapter-latest.js"></script>
-  <script src="./js/video.js"></script>
-  <script src="./js/audio.js"></script>
-  <script type="text/javascript">
-    function toggleTest() {
-      var but = document.getElementById("button");
-      var vid = document.getElementById("gum-video");
-      var aud = document.getElementById("gum-audio");
-
-      if (but.innerHTML == "Start Test") {
-        but.innerHTML = "Stop Test";
-        vid.play();
-        aud.play();
-      } else {
-        but.innerHTML = "Start Test";
-        vid.pause();
-        aud.pause();
+    <script src="./js/adapter-latest.js"></script>
+    <script src="./js/video.js"></script>
+    <script src="./js/audio.js"></script>
+    <script type="text/javascript">
+      function toggleTest() {
+        var but = document.getElementById("button");
+        var vid = document.getElementById("gum-video");
+        var aud = document.getElementById("gum-audio");
+      
+        if (but.innerHTML == "Start Test") {
+          but.innerHTML = "Stop Test";
+          vid.play();
+          aud.play();
+        } else {
+          but.innerHTML = "Start Test";
+          vid.pause();
+          aud.pause();
+        }
       }
-    }
-  </script>
-  
-</body>
+    </script>
+    <script>
+      // Get the modal
+      var modal = document.getElementById('myModal');
+      
+      // Get the button that opens the modal
+      var btn = document.getElementById("help-button");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+      
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+          modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+    </script>
+  </body>
 </html>
